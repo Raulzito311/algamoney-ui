@@ -44,7 +44,9 @@
           [value]="profissao">{{ profissao }}</option>
       </select>
 
-      <div *ngIf="profissao.invalid && profissao.dirty" class="invalid-feedback">Informe uma Profissão</div>
+      <div *ngIf="profissao.invalid && profissao.dirty" class="invalid-feedback">
+        Informe uma Profissão
+      </div>
     </div>
 
     <button type="submit" class="btn btn-primary"
