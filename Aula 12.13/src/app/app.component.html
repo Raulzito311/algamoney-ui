@@ -1,0 +1,58 @@
+<div class="container">
+
+  {{ cliente | json }}
+
+  <div class="alert alert-danger" *ngIf="usuarioForm.invalid && usuarioForm.dirty">
+    <strong>Preencha</strong> todos os campos corretamente.
+  </div>
+
+  <form autocomplete="off" #usuarioForm="ngForm" (ngSubmit)="salvar(usuarioForm)">
+    <div class="form-group">
+      <label>Nome</label>
+      <input type="text" class="form-control" name="primeiroNome"
+        [(ngModel)]="cliente.nome" required minlength="10" #nome="ngModel"
+        [class.is-invalid]="nome.invalid && nome.touched && nome.dirty">
+
+      <div *ngIf="nome.hasError('required') && nome.touched && nome.dirty" class="invalid-feedback">
+        Informe um nome
+      </div>
+      <div *ngIf="nome.hasError('minlength') && nome.touched && nome.dirty" class="invalid-feedback">
+        O nome deve ser completo
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>E-mail</label>
+      <input type="text" class="form-control" name="emailCompleto"
+        [(ngModel)]="cliente.email" required email #email="ngModel"
+        [class.is-invalid]="email.invalid && email.touched && email.dirty">
+
+      <div *ngIf="email.hasError('required') && email.touched && email.dirty" class="invalid-feedback">
+        Informe um email
+      </div>
+
+      <div *ngIf="email.hasError('email') && email.touched && email.dirty" class="invalid-feedback">
+        O email deve ser válido
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Profissão</label>
+      <select class="form-control" name="profissao"
+          [(ngModel)]="cliente.profissao" required #profissao="ngModel"
+          [class.is-invalid]="profissao.invalid && profissao.dirty">
+        <option value="">Selecione</option>
+        <option *ngFor="let profissao of profissoes"
+          [value]="profissao">{{ profissao }}</option>
+      </select>
+
+      <div *ngIf="profissao.invalid && profissao.dirty" class="invalid-feedback">
+        Informe uma Profissão
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary"
+        [disabled]="!usuarioForm.valid">Salvar</button>
+  </form>
+
+</div>
