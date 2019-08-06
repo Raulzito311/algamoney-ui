@@ -26,7 +26,4 @@ export class AppComponent {
     console.log(this.cliente);
   }
 
-  show(email: any) {
-    console.log(email);
-  }
 }
