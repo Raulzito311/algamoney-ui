@@ -1,0 +1,8 @@
+button {
+  margin-right: 5px;
+}
+
+.ui-button-info {
+  background-color: #1990b8 !important;
+  border-color: #1990b8 !important;
+}
