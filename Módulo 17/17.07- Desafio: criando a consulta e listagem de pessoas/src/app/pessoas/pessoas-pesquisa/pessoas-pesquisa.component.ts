@@ -19,8 +19,8 @@ export class PessoasPesquisaComponent implements OnInit {
 
   cols = [
     { field: 'nome', header: 'Nome' },
-    { field: 'endereco.cidade', header: 'Cidade' },
-    { field: 'endereco.estado', header: 'Estado' },
+    { field: 'cidade', header: 'Cidade' },
+    { field: 'estado', header: 'Estado' },
     { field: 'ativo', header: 'Status' }
   ];
 

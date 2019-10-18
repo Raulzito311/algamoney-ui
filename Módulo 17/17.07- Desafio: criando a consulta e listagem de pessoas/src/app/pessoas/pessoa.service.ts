@@ -28,7 +28,8 @@ export class PessoaService {
       .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
 
     return this.http.get(`${this.pessoasUrl}`, { headers })
-      .toPromise();
+      .toPromise()
+      .then(response => response['content']);
   }
 
   pesquisar(filtro: PessoaFiltro): Promise<any> {
@@ -46,15 +47,15 @@ export class PessoaService {
     return this.http.get(`${this.pessoasUrl}`, { headers, params })
       .toPromise()
       .then(response => {
-        // this.getPessoas(response);
-        const pessoas = response['content'];
+        return this.getPessoas(response);
+        /*const pessoas = response['content'];
 
         const resultado = {
           pessoas,
           total: response['totalElements']
         };
 
-        return resultado;
+        return resultado;*/
       });
   }
 
