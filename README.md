@@ -28,7 +28,19 @@ Run `npm install` to generate the 'node_modules' directory.
 
 ## Initializing the backend
 
-Run `cd backend` and then `java -jar algamoney-api-0.0.1-SNAPSHOT.jar --algamoney.origin-permitida=http://localhost:4200`.
+Run `cd backend` and then `java -jar algamoney-api-0.0.1-SNAPSHOT.jar`.
+
+# Change the allowed origin (default=http://localhost:4200)
+
+Add `--algamoney.origin-permitida=`YourOrigin
+
+# Set the username and password from your database
+
+Add `--spring.datasource.user=`YourUsername `--spring.datasource.password=`YourPassword to the command above
+
+# Set security to OAuth2
+
+Add `--spring.profiles.active=oauth-security` to the command above
 
 ## Further help
 
